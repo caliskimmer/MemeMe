@@ -18,48 +18,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cul-mg-RQH" customClass="StrokedTextField" customModule="MemeMe" customModuleProvider="target">
-                                <rect key="frame" x="104" y="363" width="112" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="36"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wdq-NI-lcs">
                                 <rect key="frame" x="0.0" y="524" width="321" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3fu-2B-Aq7"/>
-                                    <barButtonItem title="Album" id="OPP-2g-DmY"/>
+                                    <barButtonItem title="Album" id="OPP-2g-DmY">
+                                        <connections>
+                                            <action selector="pickImage:" destination="BYZ-38-t0r" id="Uze-sz-osm"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="uPU-vx-t69"/>
-                                    <barButtonItem systemItem="camera" id="w7z-QJ-sa0"/>
+                                    <barButtonItem systemItem="camera" id="w7z-QJ-sa0">
+                                        <connections>
+                                            <action selector="takePicture:" destination="BYZ-38-t0r" id="BT6-zt-ZJk"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bnd-ei-Aod"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Top" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8q-dp-uqg" customClass="StrokedTextField" customModule="MemeMe" customModuleProvider="target">
-                                <rect key="frame" x="112" y="74" width="97" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="36"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cb1-5Z-mLD">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="TrN-Fh-wJS"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0ua-QG-SDe"/>
                                     <barButtonItem title="Cancel" id="2Jh-OO-Zn2"/>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LJT-lU-4Iz">
+                                <rect key="frame" x="0.0" y="97" width="320" height="394"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Top" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3DP-jz-puH" customClass="StrokedTextField" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="112" y="131" width="97" height="43"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="36"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Noc-NC-8f5" customClass="StrokedTextField" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="105" y="402" width="112" height="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="36"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.31063610406091369" green="0.31063610406091369" blue="0.31063610406091369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Noc-NC-8f5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="105" id="1TX-p1-cib"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LJT-lU-4Iz" secondAttribute="bottom" constant="77" id="1zz-bf-P6c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Noc-NC-8f5" secondAttribute="trailing" constant="103" id="4kx-A1-aIU"/>
+                            <constraint firstItem="LJT-lU-4Iz" firstAttribute="top" secondItem="3DP-jz-puH" secondAttribute="bottom" constant="-77" id="ANe-Im-Dry"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LJT-lU-4Iz" secondAttribute="trailing" id="Fqe-4d-kbT"/>
+                            <constraint firstItem="LJT-lU-4Iz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="77" id="UDl-Mi-bYt"/>
+                            <constraint firstItem="Noc-NC-8f5" firstAttribute="top" secondItem="LJT-lU-4Iz" secondAttribute="bottom" constant="-89" id="bEc-k1-32Y"/>
+                            <constraint firstItem="LJT-lU-4Iz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gig-MM-Fh3"/>
+                            <constraint firstItem="LJT-lU-4Iz" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ipS-FM-czm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3DP-jz-puH" secondAttribute="trailing" constant="111" id="sYg-g3-VnU"/>
+                            <constraint firstItem="3DP-jz-puH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="uy3-9O-slv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bottomField" destination="Noc-NC-8f5" id="pOn-KK-cPO"/>
+                        <outlet property="cameraButton" destination="w7z-QJ-sa0" id="qLK-4L-0Rh"/>
+                        <outlet property="imageView" destination="LJT-lU-4Iz" id="JhL-9J-Snz"/>
+                        <outlet property="topField" destination="3DP-jz-puH" id="Jza-JH-5d5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+            <point key="canvasLocation" x="112.8" y="115.59220389805098"/>
         </scene>
     </scenes>
 </document>
